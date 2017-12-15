@@ -24,7 +24,31 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+    <!--<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Edgware.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
+
 	<dependencies>
+
+       <!-- &lt;!&ndash; Spring Cloud dependency &ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        &lt;!&ndash; Eureka - For Service Registry and discovery  &ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>-->
 
         <!--Starter to connect with database-->
 		<dependency>
@@ -73,16 +97,60 @@
 			<version>2.6.1</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- Jacoco-maven-plugin for test coverage -->
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.7.9</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
         <finalName>project_skeleton</finalName>
 		<plugins>
+
+            <!-- Maven configuration -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+            <!-- Jacoco configuration -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.9</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
-	</build>
+    </build>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.login>7fa707e8f8079b47cd6b2ea0ab6452aa0ab0b95f</sonar.login>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

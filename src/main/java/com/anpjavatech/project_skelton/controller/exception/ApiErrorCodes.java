@@ -11,6 +11,8 @@ public class ApiErrorCodes {
     public static final ApiError FORBIDDEN = err(403, 403, "Forbidden");
     public static final ApiError NOT_FOUND = err(404, 404, "Not found");
 
+    private ApiErrorCodes() {}
+
     protected static ApiError err(int code, int httpStatusCode, String defaultMessage){
         return new ApiError(code, httpStatusCode, defaultMessage);
     }
