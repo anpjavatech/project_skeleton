@@ -1,4 +1,4 @@
-package com.anpjavatech.project_skelton.configuration;
+package com.xylem.dewatering.fst.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

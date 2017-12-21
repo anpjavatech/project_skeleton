@@ -1,4 +1,4 @@
-package com.anpjavatech.project_skelton.configuration;
+package com.xylem.dewatering.fst.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,19 +18,18 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi(){
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.anpjavatech.project_skelton.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.xylem.dewatering.fst.controller"))
                 .paths(regex("/*.*")).build().apiInfo(metaData());
     }
 
     private ApiInfo metaData() {
-        ApiInfo apiInfo = new ApiInfo(
+       return new ApiInfo(
                 "Spring Boot REST API with Swagger",
-                "Spring Boot REST API for XXXX application",
+                "Spring Boot REST API for FST application",
                 "1.0",
                 "Terms of service",
                 new Contact("Anoop.KS", "", "anoop.ks007@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0");
-        return apiInfo;
     }
 }

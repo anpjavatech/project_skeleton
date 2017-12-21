@@ -1,4 +1,4 @@
-package com.anpjavatech.project_skelton.controller.exception;
+package com.xylem.dewatering.fst.controller.exception;
 /**
  * Created by Anoop.ks on 11-12-2017
  */

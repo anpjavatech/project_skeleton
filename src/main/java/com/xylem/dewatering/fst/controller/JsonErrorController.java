@@ -1,8 +1,8 @@
-package com.anpjavatech.project_skelton.controller;
+package com.xylem.dewatering.fst.controller;
 /**
  * Created by Anoop.ks on 11-12-2017
  */
-import com.anpjavatech.project_skelton.controller.exception.HttpException;
+import com.xylem.dewatering.fst.controller.exception.HttpException;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

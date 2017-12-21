@@ -1,4 +1,4 @@
-package com.anpjavatech.project_skelton;
+package com.xylem.dewatering.fst;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +7,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ProjectSkeltonApplicationTests {
+public class FstApplicationTests {
 
 	@Test
 	public void contextLoads() {
 	}
+
 
 }

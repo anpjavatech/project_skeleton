@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.anpjavatech</groupId>
-	<artifactId>project_skelton</artifactId>
+	<groupId>com.xylem.dewatering</groupId>
+	<artifactId>fst</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>project_skelton</name>
-	<description>Demo project for Spring Boot</description>
+	<name>fst</name>
+	<description>Project for FST de-watering</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -108,7 +108,7 @@
 	</dependencies>
 
 	<build>
-        <finalName>project_skeleton</finalName>
+        <finalName>fst</finalName>
 		<plugins>
 
             <!-- Maven configuration -->

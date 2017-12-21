@@ -1,9 +1,9 @@
-package com.anpjavatech.project_skelton.controller;
+package com.xylem.dewatering.fst.controller;
 /**
  * Created by Anoop.ks on 11-12-2017
  */
-import com.anpjavatech.project_skelton.controller.exception.ApiErrorCodes;
-import com.anpjavatech.project_skelton.controller.exception.HttpException;
+import com.xylem.dewatering.fst.controller.exception.ApiErrorCodes;
+import com.xylem.dewatering.fst.controller.exception.HttpException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class BaseController {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     protected static class HttpExceptionJson {
         public final String incidentID;
@@ -41,9 +41,9 @@ public class BaseController {
         HttpExceptionJson httpExceptionJson = new HttpExceptionJson(e.errorCode, e.description);
         String errorMsg = String.format("IncidentID - %s (%s) %s", httpExceptionJson.incidentID, e.errorCode, e.description);
         if (e.getCause() != null)
-            log.error(errorMsg, e.getCause());
+            logger.error(errorMsg, e.getCause());
         else
-            log.error(errorMsg);
+            logger.error(errorMsg);
         return new ResponseEntity<>(httpExceptionJson, HttpStatus.valueOf(e.statusCode));
     }
 
@@ -72,7 +72,7 @@ public class BaseController {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseEntity<HttpExceptionJson> handleAnyException(Exception e) {
-        return HandleAndLogHttpException(new HttpException(ApiErrorCodes.UNKNOWN));
+        return HandleAndLogHttpException(new HttpException(ApiErrorCodes.UNKNOWN, e.getMessage()));
     }
 
 }
